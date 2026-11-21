@@ -50,4 +50,14 @@ dialog::backdrop{background:#11110f99}
 .detail-facts{background:#efe9da}
 .create-form label{color:#554f41}
 .create-form input,.create-form select,.create-form textarea{border-color:#ddd7c8;background:#fff;color:var(--ink)}
-.preview-result{border-color:#ddd7c8;background:#fff}
+.preview-result{border-color:#ddd7c8;background:#fff}.hero.hero-image {
+  min-height: 0;
+  padding: 0;
+  background: #11110f;
+}
+
+.hero-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
