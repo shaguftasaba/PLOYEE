@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#155e52">
+  <meta name="description" content="Find trusted local household services near you.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Nearby Help — Local services, made easier</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Nearby Help home"><span class="brand-mark">N</span><span>nearby<span class="brand-light">help</span></span></a>
+    <button class="install-button" id="installButton" hidden>Install app</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">GOOD PEOPLE, RIGHT AROUND YOU</p>
+        <h1>Find a helping hand<br><em>close to home.</em></h1>
+        <p class="hero-text">Discover local cooks, cleaners, and home helpers. Start with your neighborhood.</p>
+        <a class="button button-light" href="#directory">Explore local helpers <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="art-card card-one">🥘 <span>Home cooking</span></div><div class="art-card card-two">🧹 <span>A fresh start</span></div><div class="art-card card-three">🏡 <span>Nearby care</span></div><div class="art-orbit"></div></div>
+      <div class="hero-note"><span class="pulse"></span> A friendly first step to finding local help</div>
+    </section>
+
+    <section class="directory section-wrap" id="directory">
+      <div class="section-heading"><div><p class="eyebrow">THE NEIGHBORHOOD DIRECTORY</p><h2>Who can help today?</h2></div><span class="demo-tag">DEMO LISTINGS</span></div>
+      <p class="muted intro">These sample profiles show how the directory could work. They are not real workers.</p>
+      <div class="filters" role="search">
+        <label class="search-field"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search a service or area" aria-label="Search a service or area"></label>
+        <label class="select-wrap"><span class="sr-only">Filter by service</span><select id="serviceFilter"><option value="all">All services</option><option value="Cooking">Cooking</option><option value="Cleaning">Cleaning</option><option value="Home help">Home help</option></select></label>
+      </div>
+      <div class="results-line"><span id="resultCount" aria-live="polite"></span><span>Choose a profile to see details</span></div>
+      <div class="worker-grid" id="workerGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><span>⌕</span><h3>No matches yet</h3><p>Try another service or neighborhood.</p></div>
+    </section>
+
+    <section class="join-section">
+      <div class="join-copy"><p class="eyebrow">FOR LOCAL PROFESSIONALS</p><h2>Good at what you do?<br><em>Let neighbors know.</em></h2><p>Make a sample profile and see how it could look in the directory. This preview stays on this device and is not published.</p><button class="button button-dark" id="openForm">Create a profile preview <span aria-hidden="true">↗</span></button></div>
+      <div class="join-stamp" aria-hidden="true"><span>LOCAL SKILLS</span><b>✳</b><span>DESERVE TO SHINE</span></div>
+    </section>
+
+    <section class="install-section section-wrap" id="install-help">
+      <div><p class="eyebrow">TAKE IT WITH YOU</p><h2>Add Nearby Help<br>to your home screen.</h2><p class="muted">Use it like an app, right from your phone.</p></div>
+      <div class="install-steps"><article><span class="step-number">01</span><div><h3>On iPhone</h3><p>Open this page in Safari. Tap <b>Share</b>, then <b>Add to Home Screen</b>.</p></div></article><article><span class="step-number">02</span><div><h3>On Android</h3><p>Open this page in Chrome. Tap <b>⋮</b>, then <b>Install app</b> or <b>Add to Home screen</b>.</p></div></article></div>
+    </section>
+    <footer><a class="brand" href="#home"><span class="brand-mark">N</span><span>nearby<span class="brand-light">help</span></span></a><span>Built for neighbors, one connection at a time.</span><a href="#install-help">Install help ↑</a></footer>
+  </main>
+
+  <dialog id="profileDialog" aria-labelledby="dialogTitle"><form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form><div id="dialogContent"></div></dialog>
+  <dialog id="createDialog" aria-labelledby="createTitle"><form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form><p class="eyebrow">YOUR LOCAL SKILLS</p><h2 id="createTitle">Make a profile preview</h2><p class="muted">This is a private demo on this device. No information is uploaded.</p><form id="createForm" class="create-form"><label>Your name<input name="name" required maxlength="40" placeholder="e.g. Asha"></label><label>Service<select name="service" required><option value="">Choose one</option><option>Cooking</option><option>Cleaning</option><option>Home help</option></select></label><label>Neighborhood<input name="area" required maxlength="50" placeholder="e.g. Green Park"></label><label>Languages<input name="languages" maxlength="50" placeholder="e.g. Hindi, English"></label><label>About your work<textarea name="about" required maxlength="180" rows="3" placeholder="What kind of help do you offer?"></textarea></label><button class="button button-dark" type="submit">Show my preview</button></form><div id="previewResult" class="preview-result" hidden></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

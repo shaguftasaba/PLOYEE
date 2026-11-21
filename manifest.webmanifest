@@ -1,0 +1,13 @@
+{
+  "name": "Nearby Help — Local Services",
+  "short_name": "Nearby Help",
+  "description": "Find local cooks, cleaners, and home helpers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf8f0",
+  "theme_color": "#155e52",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
