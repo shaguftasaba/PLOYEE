@@ -1,15 +1,15 @@
-const CACHE = 'nex-ployee-v3';
-const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'nex-ployee-v5';
+const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './nex-ployee-plus-app-icon.svg', './nex-ployee-plus-final.svg'];
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))
-    )
+    ).then(() => self.clients.claim())
   );
 });
 
