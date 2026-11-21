@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
   <title id="title">NEX PLOYEE+ app icon</title>
   <desc id="desc">Green rounded square with a white N and lime forward arrow.</desc>
-  <defs><linearGradient id="brandGreen" x1="44" y1="26" x2="273" y2="293" gradientUnits="userSpaceOnUse"><stop stop-color="#35CC91"/><stop offset="1" stop-color="#087A50"/></linearGradient></defs>
+  <defs><linearGradient id="brandGreen" x1="44" y1="26" x2="273" y2="293" gradientUnits="userSpaceOnUse"><stop stop-color="#D1B86A"/><stop offset="1" stop-color="#7D6225"/></linearGradient></defs>
   <rect x="10" y="10" width="300" height="300" rx="74" fill="url(#brandGreen)"/>
   <path d="M73 209V92h24l61 66V92h30v117h-24l-61-67v67H73Z" fill="#fff"/>
-  <path d="M187 150h55m-22-22 22 22-22 22" fill="none" stroke="#B9EF58" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M187 150h55m-22-22 22 22-22 22" fill="none" stroke="#F3D982" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+

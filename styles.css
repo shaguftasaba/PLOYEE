@@ -4,3 +4,50 @@
   width: 220px;
   height: auto;
 }
+/* Warm black, mustard gold, and ivory palette inspired by the reference image. */
+:root{--green:#b89a4a;--deep:#11110f;--mint:#f0ead7;--cream:#f7f6f2;--ink:#171612;--muted:#77736a;--orange:#c2a14c;--line:#e6e2d8}
+body{background:var(--cream);color:var(--ink)}
+.brand{color:var(--deep)}
+.brand-mark{background:var(--deep);color:#f7f6f2}
+.install-button{border-color:#d9cfad;background:#fff;color:var(--deep)}
+.hero{background:#090908;color:#f8f7f3}
+.eyebrow{color:#d1b45e}
+.hero h1 em,.join-section h2 em{color:#d2b65f}
+.hero-text,.hero-note{color:#d4d0c5}
+.button-light{background:#c4a34e;color:#11110f}
+.button-dark{background:#11110f;color:#fff}
+.sun{background:#b99a4a}
+.art-orbit{border-color:rgba(198,168,84,.38)}
+.art-card{background:#fdfcf9;color:#181713;box-shadow:0 12px 30px #00000038}
+.pulse{background:#d6b957}
+.section-heading .eyebrow,.install-section .eyebrow,.join-section .eyebrow{color:#9a792b}
+.demo-tag{background:#eee5ca;color:#735916}
+.search-field,.select-wrap{background:#fff;border-color:var(--line)}
+.search-field{color:#92752e}
+.results-line{color:#77736a}
+.worker-card{background:#fff;border-color:var(--line)}
+.worker-card:hover{box-shadow:0 12px 25px #5b4a2018}
+.avatar{background:#efe5c8}
+.worker-card:nth-child(3n+2) .avatar{background:#f2ead7}
+.worker-card:nth-child(3n) .avatar{background:#e8e5dd}
+.service-pill{background:#efe6cb;color:#725914}
+.worker-bio{color:#6f6b62}
+.card-foot{border-color:#eeeae1}
+.availability{color:#81703e}
+.view-link{color:#8d6e23}
+.join-section{background:#c0a04d;color:#17150f}
+.join-section .eyebrow{color:#554315}
+.join-section h2 em{color:#2d281b}
+.join-copy>p:not(.eyebrow){color:#433b28}
+.join-stamp{border-color:#71602d;color:#59491e}
+.install-steps article{border-color:var(--line)}
+.step-number{color:#967523}
+footer{border-color:var(--line);color:#77736a}
+footer>a:last-child{color:#8d6e23}
+dialog{background:#f7f6f2;color:var(--ink);box-shadow:0 24px 80px #17130b55}
+dialog::backdrop{background:#11110f99}
+.dialog-close button{background:#e9e4d6;color:#29251b}
+.detail-facts{background:#efe9da}
+.create-form label{color:#554f41}
+.create-form input,.create-form select,.create-form textarea{border-color:#ddd7c8;background:#fff;color:var(--ink)}
+.preview-result{border-color:#ddd7c8;background:#fff}

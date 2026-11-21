@@ -1,4 +1,4 @@
-const CACHE = 'nex-ployee-v5';
+const CACHE = 'nex-ployee-v6';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './nex-ployee-plus-app-icon.svg', './nex-ployee-plus-final.svg'];
 
 self.addEventListener('install', event => {
@@ -28,3 +28,4 @@ self.addEventListener('fetch', event => {
     )
   );
 });
+
