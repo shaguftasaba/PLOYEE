@@ -1,4 +1,4 @@
-# NEX PLOYEE+
+# Nearby Help
 
 A mobile-friendly local services directory prototype built with plain HTML, CSS, and JavaScript. It is designed for static hosting on GitHub Pages.
 

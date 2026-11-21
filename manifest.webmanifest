@@ -1,6 +1,6 @@
 {
-  "name": "Nearby Help — Local Services",
-  "short_name": "Nearby Help",
+  "name": "NEX PLOYEE+ — Local Services",
+  "short_name": "NEX PLOYEE+",
   "description": "Find local cooks, cleaners, and home helpers.",
   "start_url": "./",
   "scope": "./",
@@ -8,6 +8,11 @@
   "background_color": "#fbf8f0",
   "theme_color": "#155e52",
   "icons": [
-    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }
