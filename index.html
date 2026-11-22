@@ -30,6 +30,72 @@
   </header>
 
   <main id="home">
+    <section class="directory section-wrap" id="directory">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE NEIGHBORHOOD DIRECTORY</p>
+          <h2>Choose a service category</h2>
+        </div>
+        <span class="demo-tag">DEMO LISTINGS</span>
+      </div>
+
+      <p class="muted intro">
+        Start with a category to see the services and sample profiles available.
+      </p>
+
+      <div
+        class="category-grid"
+        id="categoryGrid"
+        aria-label="Service categories"
+      ></div>
+
+      <div class="category-view" id="categoryView" hidden>
+        <button class="back-link" id="backToCategories" type="button">
+          ← All categories
+        </button>
+
+        <div class="section-heading category-heading">
+          <div>
+            <p class="eyebrow">AVAILABLE SERVICES</p>
+            <h2 id="categoryTitle"></h2>
+          </div>
+        </div>
+
+        <p class="muted intro" id="categoryIntro"></p>
+
+        <div
+          class="service-filters"
+          id="serviceFilters"
+          aria-label="Filter by service"
+        ></div>
+
+        <div class="filters" role="search">
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search a service or area"
+              aria-label="Search a service or area"
+            >
+          </label>
+        </div>
+
+        <div class="results-line">
+          <span id="resultCount" aria-live="polite"></span>
+          <span>Choose a profile to see details</span>
+        </div>
+
+        <div class="worker-grid" id="workerGrid"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <span>⌕</span>
+          <h3>No sample profiles yet</h3>
+          <p>There are no demo employees in this service yet.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="hero hero-image">
       <img
         class="hero-banner"
@@ -41,55 +107,6 @@
         href="#directory"
         aria-label="Find local helpers"
       >Find local helpers</a>
-    </section>
-
-    <section class="directory section-wrap" id="directory">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">THE NEIGHBORHOOD DIRECTORY</p>
-          <h2>Who can help today?</h2>
-        </div>
-        <span class="demo-tag">DEMO LISTINGS</span>
-      </div>
-
-      <p class="muted intro">
-        These sample profiles show how the directory could work. They are not real workers.
-      </p>
-
-      <div class="filters" role="search">
-        <label class="search-field">
-          <span aria-hidden="true">⌕</span>
-          <input
-            id="searchInput"
-            type="search"
-            placeholder="Search a service or area"
-            aria-label="Search a service or area"
-          >
-        </label>
-
-        <label class="select-wrap">
-          <span class="sr-only">Filter by service</span>
-          <select id="serviceFilter">
-            <option value="all">All services</option>
-            <option value="Cooking">Cooking</option>
-            <option value="Cleaning">Cleaning</option>
-            <option value="Home help">Home help</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="results-line">
-        <span id="resultCount" aria-live="polite"></span>
-        <span>Choose a profile to see details</span>
-      </div>
-
-      <div class="worker-grid" id="workerGrid"></div>
-
-      <div class="empty-state" id="emptyState" hidden>
-        <span>⌕</span>
-        <h3>No matches yet</h3>
-        <p>Try another service or neighborhood.</p>
-      </div>
     </section>
 
     <section class="join-section">
@@ -175,9 +192,22 @@
         Service
         <select name="service" required>
           <option value="">Choose one</option>
-          <option>Cooking</option>
-          <option>Cleaning</option>
-          <option>Home help</option>
+          <option>Maid / Housekeeper</option>
+          <option>Home Deep Cleaners</option>
+          <option>Laundry &amp; Ironing (Dhobi / Presswala)</option>
+          <option>Cook / Chef</option>
+          <option>Babysitter / Nanny</option>
+          <option>Patient Attendant</option>
+          <option>Pet Sitter / Dog Walker</option>
+          <option>Electrician</option>
+          <option>Plumber</option>
+          <option>Carpenter</option>
+          <option>Appliance Technician</option>
+          <option>Driver</option>
+          <option>Security Guard / Watchman</option>
+          <option>Gardener</option>
+          <option>Car Washer</option>
+          <option>Delivery &amp; Errand Helper</option>
         </select>
       </label>
 
