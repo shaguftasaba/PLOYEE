@@ -13,14 +13,26 @@
 <body>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
-      <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
+      <img
+        class="brand-logo"
+        src="nex-ployee-plus-final.svg"
+        alt="NEX PLOYEE+"
+      >
     </a>
 
     <nav class="topbar-actions" aria-label="Main actions">
-      <button class="nav-option" type="button" data-coming-soon="employer">
+      <button
+        class="nav-option"
+        type="button"
+        data-coming-soon="employer"
+      >
         Employer Login
       </button>
-      <button class="nav-option" type="button" data-coming-soon="admin">
+      <button
+        class="nav-option"
+        type="button"
+        data-coming-soon="admin"
+      >
         Admin Panel
       </button>
       <button class="install-button" id="installButton" hidden>
@@ -30,138 +42,161 @@
   </header>
 
   <main id="home">
-    <section class="directory section-wrap" id="directory">
-      <div class="section-heading">
+    <div id="homeScreen">
+      <!-- Hero banner appears first when the app opens -->
+      <section class="hero hero-image">
+        <img
+          class="hero-banner"
+          src="./hero-banner.png.png"
+          alt="Find trusted household help with NEX PLOYEE+"
+        >
+        <a
+          class="hero-cta-link"
+          href="#directory"
+          aria-label="Find local helpers"
+        >
+          Find local helpers
+        </a>
+      </section>
+
+      <!-- Categories appear directly below the hero banner -->
+      <section class="directory section-wrap" id="directory">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE NEIGHBORHOOD DIRECTORY</p>
+            <h2>Choose a service category</h2>
+          </div>
+          <span class="demo-tag">DEMO LISTINGS</span>
+        </div>
+
+        <p class="muted intro">
+          Start with a category to see its services and available sample profiles.
+        </p>
+
+        <div
+          class="category-grid"
+          id="categoryGrid"
+          aria-label="Service categories"
+        ></div>
+      </section>
+
+      <section class="join-section">
+        <div class="join-copy">
+          <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
+          <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
+          <p>
+            Make a sample profile and see how it could look in the directory.
+            This preview stays on this device and is not published.
+          </p>
+          <button class="button button-dark" id="openForm" type="button">
+            Create a profile preview
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <div class="join-stamp" aria-hidden="true">
+          <span>LOCAL SKILLS</span>
+          <b>✳</b>
+          <span>DESERVE TO SHINE</span>
+        </div>
+      </section>
+
+      <section class="install-section section-wrap" id="install-help">
         <div>
-          <p class="eyebrow">THE NEIGHBORHOOD DIRECTORY</p>
-          <h2>Choose a service category</h2>
+          <p class="eyebrow">TAKE IT WITH YOU</p>
+          <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
+          <p class="muted">Use it like an app, right from your phone.</p>
+        </div>
+
+        <div class="install-steps">
+          <article>
+            <span class="step-number">01</span>
+            <div>
+              <h3>On iPhone</h3>
+              <p>
+                Open this page in Safari. Tap <b>Share</b>, then
+                <b>Add to Home Screen</b>.
+              </p>
+            </div>
+          </article>
+
+          <article>
+            <span class="step-number">02</span>
+            <div>
+              <h3>On Android</h3>
+              <p>
+                Open this page in Chrome. Tap <b>⋮</b>, then
+                <b>Install app</b> or <b>Add to Home screen</b>.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
+          <img
+            class="brand-logo"
+            src="nex-ployee-plus-final.svg"
+            alt="NEX PLOYEE+"
+          >
+        </a>
+        <span>Built for neighbors, one connection at a time.</span>
+        <a href="#install-help">Install help ↑</a>
+      </footer>
+    </div>
+
+    <!-- Separate category screen, shown after a category is selected -->
+    <section class="category-page section-wrap" id="categoryPage" hidden>
+      <button
+        class="back-link"
+        id="backToCategories"
+        type="button"
+      >
+        ← All categories
+      </button>
+
+      <div class="section-heading category-heading">
+        <div>
+          <p class="eyebrow">AVAILABLE SERVICES</p>
+          <h2 id="categoryTitle"></h2>
         </div>
         <span class="demo-tag">DEMO LISTINGS</span>
       </div>
 
-      <p class="muted intro">
-        Start with a category to see the services and sample profiles available.
-      </p>
+      <p class="muted intro" id="categoryIntro"></p>
 
       <div
-        class="category-grid"
-        id="categoryGrid"
-        aria-label="Service categories"
+        class="service-filters"
+        id="serviceFilters"
+        aria-label="Filter employees by service"
       ></div>
 
-      <div class="category-view" id="categoryView" hidden>
-        <button class="back-link" id="backToCategories" type="button">
-          ← All categories
-        </button>
+      <div class="filters" role="search">
+        <label class="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search a service or area"
+            aria-label="Search a service or area"
+          >
+        </label>
+      </div>
 
-        <div class="section-heading category-heading">
-          <div>
-            <p class="eyebrow">AVAILABLE SERVICES</p>
-            <h2 id="categoryTitle"></h2>
-          </div>
-        </div>
+      <div class="results-line">
+        <span id="resultCount" aria-live="polite"></span>
+        <span>Choose a profile to see details</span>
+      </div>
 
-        <p class="muted intro" id="categoryIntro"></p>
+      <div class="worker-grid" id="workerGrid"></div>
 
-        <div
-          class="service-filters"
-          id="serviceFilters"
-          aria-label="Filter by service"
-        ></div>
-
-        <div class="filters" role="search">
-          <label class="search-field">
-            <span aria-hidden="true">⌕</span>
-            <input
-              id="searchInput"
-              type="search"
-              placeholder="Search a service or area"
-              aria-label="Search a service or area"
-            >
-          </label>
-        </div>
-
-        <div class="results-line">
-          <span id="resultCount" aria-live="polite"></span>
-          <span>Choose a profile to see details</span>
-        </div>
-
-        <div class="worker-grid" id="workerGrid"></div>
-
-        <div class="empty-state" id="emptyState" hidden>
-          <span>⌕</span>
-          <h3>No sample profiles yet</h3>
-          <p>There are no demo employees in this service yet.</p>
-        </div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span>⌕</span>
+        <h3>No sample profiles yet</h3>
+        <p>There are no demo employees in this service yet.</p>
       </div>
     </section>
-
-    <section class="hero hero-image">
-      <img
-        class="hero-banner"
-        src="./hero-banner.png.png"
-        alt="Find trusted household help with NEX PLOYEE+"
-      >
-      <a
-        class="hero-cta-link"
-        href="#directory"
-        aria-label="Find local helpers"
-      >Find local helpers</a>
-    </section>
-
-    <section class="join-section">
-      <div class="join-copy">
-        <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
-        <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
-        <p>
-          Make a sample profile and see how it could look in the directory.
-          This preview stays on this device and is not published.
-        </p>
-        <button class="button button-dark" id="openForm">
-          Create a profile preview <span aria-hidden="true">↗</span>
-        </button>
-      </div>
-
-      <div class="join-stamp" aria-hidden="true">
-        <span>LOCAL SKILLS</span>
-        <b>✳</b>
-        <span>DESERVE TO SHINE</span>
-      </div>
-    </section>
-
-    <section class="install-section section-wrap" id="install-help">
-      <div>
-        <p class="eyebrow">TAKE IT WITH YOU</p>
-        <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
-        <p class="muted">Use it like an app, right from your phone.</p>
-      </div>
-
-      <div class="install-steps">
-        <article>
-          <span class="step-number">01</span>
-          <div>
-            <h3>On iPhone</h3>
-            <p>Open this page in Safari. Tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
-          </div>
-        </article>
-
-        <article>
-          <span class="step-number">02</span>
-          <div>
-            <h3>On Android</h3>
-            <p>Open this page in Chrome. Tap <b>⋮</b>, then <b>Install app</b> or <b>Add to Home screen</b>.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
-        <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
-      </a>
-      <span>Built for neighbors, one connection at a time.</span>
-      <a href="#install-help">Install help ↑</a>
-    </footer>
   </main>
 
   <dialog id="profileDialog" aria-labelledby="dialogTitle">
@@ -185,7 +220,12 @@
     <form id="createForm" class="create-form">
       <label>
         Your name
-        <input name="name" required maxlength="40" placeholder="e.g. Asha">
+        <input
+          name="name"
+          required
+          maxlength="40"
+          placeholder="e.g. Asha"
+        >
       </label>
 
       <label>
@@ -213,12 +253,21 @@
 
       <label>
         Neighborhood
-        <input name="area" required maxlength="50" placeholder="e.g. Green Park">
+        <input
+          name="area"
+          required
+          maxlength="50"
+          placeholder="e.g. Green Park"
+        >
       </label>
 
       <label>
         Languages
-        <input name="languages" maxlength="50" placeholder="e.g. Hindi, English">
+        <input
+          name="languages"
+          maxlength="50"
+          placeholder="e.g. Hindi, English"
+        >
       </label>
 
       <label>
@@ -232,7 +281,9 @@
         ></textarea>
       </label>
 
-      <button class="button button-dark" type="submit">Show my preview</button>
+      <button class="button button-dark" type="submit">
+        Show my preview
+      </button>
     </form>
 
     <div id="previewResult" class="preview-result" hidden></div>
@@ -247,7 +298,11 @@
     <p class="muted" id="comingSoonMessage">
       Employer sign-in is not active yet.
     </p>
-    <button class="button button-dark" type="button" id="closeComingSoon">
+    <button
+      class="button button-dark"
+      type="button"
+      id="closeComingSoon"
+    >
       Got it
     </button>
   </dialog>
