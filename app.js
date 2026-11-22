@@ -3,26 +3,31 @@ const categories = [
   {
     name: 'Home Care & Cleaning',
     image: './home-care-cleaning.png',
+    image: './home-care-cleaning.png.png',
     services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)']
   },
   {
     name: 'Cooking & Kitchen Help',
     image: './cooking-kitchen-help.png',
+    image: './cooking-kitchen-help.png.png',
     services: ['Cook / Chef']
   },
   {
     name: 'Family & Caregiving',
     image: './family-caregiving.png',
+    image: './family-caregiving.png.png',
     services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker']
   },
   {
     name: 'Repair & Maintenance',
     image: './repair-maintenance.png',
+    image: './repair-maintenance.png.png',
     services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician']
   },
   {
     name: 'Outdoor & Support',
     image: './outdoor-support.png',
+    image: './outdoor-support.png.png',
     services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper']
   }
 ];
