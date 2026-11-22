@@ -61,3 +61,13 @@ dialog::backdrop{background:#11110f99}
   width: 100%;
   height: auto;
 }
+
+/* Header options and clickable CTA embedded in the hero artwork. */
+.topbar-actions{display:flex;align-items:center;gap:10px}
+.nav-option{border:1px solid #d9cfad;background:transparent;color:var(--deep);padding:9px 13px;border-radius:999px;font:600 12px 'DM Sans',sans-serif;cursor:pointer}
+.nav-option:hover,.nav-option:focus-visible{background:#eee5ca;outline:2px solid #b89a4a;outline-offset:2px}
+.hero.hero-image{position:relative}
+.hero-cta-link{position:absolute;left:7.7%;top:68%;width:21.5%;height:8.6%;display:block;overflow:hidden;text-indent:-9999px;border-radius:999px}
+.hero-cta-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#comingSoonDialog .button{margin-top:10px}
+@media(max-width:600px){.topbar{padding:0 12px}.brand-logo{width:145px}.topbar-actions{gap:5px}.nav-option{padding:8px 9px;font-size:10px}.install-button{padding:8px 10px;font-size:11px}}
