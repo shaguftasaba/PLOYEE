@@ -1,9 +1,9 @@
 const categories = [
-  { name: 'Home Care & Cleaning', icon: '⌂', services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)'] },
-  { name: 'Cooking & Kitchen Help', icon: '♨', services: ['Cook / Chef'] },
-  { name: 'Family & Caregiving', icon: '♡', services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker'] },
-  { name: 'Repair & Maintenance', icon: '⚒', services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician'] },
-  { name: 'Outdoor & Support', icon: '✳', services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper'] }
+  { name: 'Home Care & Cleaning', art: '🧹', accents: ['🧺', '🧽'], services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)'] },
+  { name: 'Cooking & Kitchen Help', art: '🍳', accents: ['🥗', '🍲'], services: ['Cook / Chef'] },
+  { name: 'Family & Caregiving', art: '👨‍👩‍👧', accents: ['🧸', '🐾'], services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker'] },
+  { name: 'Repair & Maintenance', art: '🛠️', accents: ['🔌', '🚰'], services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician'] },
+  { name: 'Outdoor & Support', art: '🌿', accents: ['🚗', '📦'], services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper'] }
 ];
 
 // These are fictional demo profiles. Add real profiles only when the app has a secure backend.
@@ -17,7 +17,6 @@ const workers = [
 ];
 
 const categoryGrid = document.querySelector('#categoryGrid');
-const categoryView = document.querySelector('#categoryView');
 const homeScreen = document.querySelector('#homeScreen');
 const categoryPage = document.querySelector('#categoryPage');
 const categoryTitle = document.querySelector('#categoryTitle');
@@ -34,10 +33,14 @@ let selectedService = 'all';
 
 function categoryMarkup(category, index) {
   return `<button class="category-card" type="button" data-category="${index}">
-    <span class="category-icon" aria-hidden="true">${category.icon}</span>
+    <span class="category-art category-art-${index + 1}" aria-hidden="true">
+      <span class="category-art-main">${category.art}</span>
+      <span class="category-art-accent category-art-accent-one">${category.accents[0]}</span>
+      <span class="category-art-accent category-art-accent-two">${category.accents[1]}</span>
+    </span>
     <span class="category-card-copy"><strong>${category.name}</strong><small>${category.services.length} services</small>
       <span class="category-examples">${category.services.slice(0, 2).join(' · ')}${category.services.length > 2 ? ' · more' : ''}</span>
-    </span><span class="category-arrow" aria-hidden="true">→</span>
+    </span><span class="category-arrow" aria-hidden="true">Explore →</span>
   </button>`;
 }
 
@@ -46,8 +49,6 @@ function serviceButtonMarkup(service, isActive) {
   return `<button class="service-filter${isActive ? ' active' : ''}" type="button" data-service="${service}" aria-pressed="${isActive}">${label}</button>`;
 }
 
-function openCategory(index) {
-  selectedCategory = categories[index];
 function categorySlug(category) {
   return category.name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
@@ -59,8 +60,6 @@ function showCategory(category) {
   categoryTitle.textContent = selectedCategory.name;
   categoryIntro.textContent = `Browse ${selectedCategory.services.join(', ')}. The profiles shown are fictional examples.`;
   serviceFilters.innerHTML = [serviceButtonMarkup('all', true), ...selectedCategory.services.map(service => serviceButtonMarkup(service, false))].join('');
-  categoryGrid.hidden = true;
-  categoryView.hidden = false;
   homeScreen.hidden = true;
   categoryPage.hidden = false;
   renderWorkers();
@@ -104,7 +103,6 @@ function renderWorkers() {
 categoryGrid.innerHTML = categories.map(categoryMarkup).join('');
 categoryGrid.addEventListener('click', event => {
   const card = event.target.closest('[data-category]');
-  if (card) openCategory(Number(card.dataset.category));
   if (card) {
     const category = categories[Number(card.dataset.category)];
     location.hash = `category/${categorySlug(category)}`;
@@ -112,10 +110,6 @@ categoryGrid.addEventListener('click', event => {
 });
 
 document.querySelector('#backToCategories').addEventListener('click', () => {
-  selectedCategory = null;
-  categoryView.hidden = true;
-  categoryGrid.hidden = false;
-  categoryGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   location.hash = 'directory';
 });
 
