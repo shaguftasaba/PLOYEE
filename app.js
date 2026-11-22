@@ -92,3 +92,17 @@ window.addEventListener('appinstalled', () => {
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 }
+const comingSoonDialog = document.querySelector('#comingSoonDialog');
+const comingSoonTitle = document.querySelector('#comingSoonTitle');
+const comingSoonMessage = document.querySelector('#comingSoonMessage');
+document.querySelectorAll('[data-coming-soon]').forEach(button => {
+  button.addEventListener('click', () => {
+    const isAdmin = button.dataset.comingSoon === 'admin';
+    comingSoonTitle.textContent = isAdmin ? 'Admin Panel' : 'Employer Login';
+    comingSoonMessage.textContent = isAdmin
+      ? 'The admin panel is not active yet.'
+      : 'Employer sign-in is not active yet.';
+    comingSoonDialog.showModal();
+  });
+});
+document.querySelector('#closeComingSoon').addEventListener('click', () => comingSoonDialog.close());
