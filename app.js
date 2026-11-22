@@ -1,9 +1,9 @@
 const categories = [
-  { name: 'Home Care & Cleaning', art: '🧹', accents: ['🧺', '🧽'], services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)'] },
-  { name: 'Cooking & Kitchen Help', art: '🍳', accents: ['🥗', '🍲'], services: ['Cook / Chef'] },
-  { name: 'Family & Caregiving', art: '👨‍👩‍👧', accents: ['🧸', '🐾'], services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker'] },
-  { name: 'Repair & Maintenance', art: '🛠️', accents: ['🔌', '🚰'], services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician'] },
-  { name: 'Outdoor & Support', art: '🌿', accents: ['🚗', '📦'], services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper'] }
+  { name: 'Home Care & Cleaning', image: './home-care-cleaning.png', services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)'] },
+  { name: 'Cooking & Kitchen Help', image: './cooking-kitchen-help.png', services: ['Cook / Chef'] },
+  { name: 'Family & Caregiving', image: './family-caregiving.png', services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker'] },
+  { name: 'Repair & Maintenance', image: './repair-maintenance.png', services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician'] },
+  { name: 'Outdoor & Support', image: './outdoor-support.png', services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper'] }
 ];
 
 // These are fictional demo profiles. Add real profiles only when the app has a secure backend.
@@ -34,9 +34,7 @@ let selectedService = 'all';
 function categoryMarkup(category, index) {
   return `<button class="category-card" type="button" data-category="${index}">
     <span class="category-art category-art-${index + 1}" aria-hidden="true">
-      <span class="category-art-main">${category.art}</span>
-      <span class="category-art-accent category-art-accent-one">${category.accents[0]}</span>
-      <span class="category-art-accent category-art-accent-two">${category.accents[1]}</span>
+      <img src="${category.image}" alt="${category.name}" loading="lazy" decoding="async">
     </span>
     <span class="category-card-copy"><strong>${category.name}</strong><small>${category.services.length} services</small>
       <span class="category-examples">${category.services.slice(0, 2).join(' · ')}${category.services.length > 2 ? ' · more' : ''}</span>
