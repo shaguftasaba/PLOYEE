@@ -18,6 +18,8 @@ const workers = [
 
 const categoryGrid = document.querySelector('#categoryGrid');
 const categoryView = document.querySelector('#categoryView');
+const homeScreen = document.querySelector('#homeScreen');
+const categoryPage = document.querySelector('#categoryPage');
 const categoryTitle = document.querySelector('#categoryTitle');
 const categoryIntro = document.querySelector('#categoryIntro');
 const serviceFilters = document.querySelector('#serviceFilters');
@@ -46,6 +48,12 @@ function serviceButtonMarkup(service, isActive) {
 
 function openCategory(index) {
   selectedCategory = categories[index];
+function categorySlug(category) {
+  return category.name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function showCategory(category) {
+  selectedCategory = category;
   selectedService = 'all';
   searchInput.value = '';
   categoryTitle.textContent = selectedCategory.name;
@@ -53,7 +61,23 @@ function openCategory(index) {
   serviceFilters.innerHTML = [serviceButtonMarkup('all', true), ...selectedCategory.services.map(service => serviceButtonMarkup(service, false))].join('');
   categoryGrid.hidden = true;
   categoryView.hidden = false;
+  homeScreen.hidden = true;
+  categoryPage.hidden = false;
   renderWorkers();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function showHome() {
+  selectedCategory = null;
+  categoryPage.hidden = true;
+  homeScreen.hidden = false;
+}
+
+function renderRoute() {
+  const route = location.hash.startsWith('#category/') ? location.hash.slice('#category/'.length) : '';
+  const category = categories.find(item => categorySlug(item) === route);
+  if (category) showCategory(category);
+  else showHome();
 }
 
 function cardMarkup(worker, index) {
@@ -81,6 +105,10 @@ categoryGrid.innerHTML = categories.map(categoryMarkup).join('');
 categoryGrid.addEventListener('click', event => {
   const card = event.target.closest('[data-category]');
   if (card) openCategory(Number(card.dataset.category));
+  if (card) {
+    const category = categories[Number(card.dataset.category)];
+    location.hash = `category/${categorySlug(category)}`;
+  }
 });
 
 document.querySelector('#backToCategories').addEventListener('click', () => {
@@ -88,7 +116,11 @@ document.querySelector('#backToCategories').addEventListener('click', () => {
   categoryView.hidden = true;
   categoryGrid.hidden = false;
   categoryGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  location.hash = 'directory';
 });
+
+window.addEventListener('hashchange', renderRoute);
+renderRoute();
 
 serviceFilters.addEventListener('click', event => {
   const button = event.target.closest('[data-service]');
