@@ -13,53 +13,32 @@
 <body>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
-      <img
-        class="brand-logo"
-        src="nex-ployee-plus-final.svg"
-        alt="NEX PLOYEE+"
-      >
+      <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
     </a>
-
-    <nav class="topbar-actions" aria-label="Main actions">
-      <button
-        class="nav-option"
-        type="button"
-        data-coming-soon="employer"
-      >
-        Employer Login
+    <div class="topbar-actions">
+      <button class="install-button" id="installButton" hidden>Install app</button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainMenu">
+        <span></span><span></span><span></span>
       </button>
-      <button
-        class="nav-option"
-        type="button"
-        data-coming-soon="admin"
-      >
-        Admin Panel
-      </button>
-      <button class="install-button" id="installButton" hidden>
-        Install app
-      </button>
-    </nav>
+      <nav class="header-menu" id="mainMenu" aria-label="Account menu" hidden>
+        <button class="nav-option" type="button" data-open-dashboard="customer">Customer Login</button>
+        <button class="nav-option" type="button" data-open-dashboard="provider">Service Provider Login</button>
+        <button class="nav-option admin-inactive" type="button" disabled>Admin Panel</button>
+      </nav>
+    </div>
   </header>
 
   <main id="home">
     <div id="homeScreen">
-      <!-- Hero banner appears first when the app opens -->
       <section class="hero hero-image">
         <img
           class="hero-banner"
           src="./hero-banner.png.png"
           alt="Find trusted household help with NEX PLOYEE+"
         >
-        <a
-          class="hero-cta-link"
-          href="#directory"
-          aria-label="Find local helpers"
-        >
-          Find local helpers
-        </a>
+        <a class="hero-cta-link" href="#directory" aria-label="Find local helpers">Find local helpers</a>
       </section>
 
-      <!-- Categories appear directly below the hero banner -->
       <section class="directory section-wrap" id="directory">
         <div class="section-heading">
           <div>
@@ -68,94 +47,69 @@
           </div>
           <span class="demo-tag">DEMO LISTINGS</span>
         </div>
+        <p class="muted intro">Start with a category to see the services and sample profiles available.</p>
+        <div class="category-grid" id="categoryGrid" aria-label="Service categories"></div>
+      </section>
 
-        <p class="muted intro">
-          Start with a category to see its services and available sample profiles.
-        </p>
-
-        <div
-          class="category-grid"
-          id="categoryGrid"
-          aria-label="Service categories"
-        ></div>
+      <section class="dashboard-preview section-wrap" aria-labelledby="dashboardPreviewTitle">
+        <p class="eyebrow">DASHBOARD PREVIEW</p>
+        <h2 id="dashboardPreviewTitle">Explore the app as a customer or provider</h2>
+        <p class="muted">These previews demonstrate the tabs. Login and account features are not active yet.</p>
+        <div class="preview-actions">
+          <button class="button button-dark" type="button" data-open-dashboard="customer">Preview Customer Tabs →</button>
+          <button class="button button-gold" type="button" data-open-dashboard="provider">Preview Provider Tabs →</button>
+        </div>
       </section>
 
       <section class="join-section">
-        <div class="join-copy">
-          <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
-          <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
-          <p>
-            Make a sample profile and see how it could look in the directory.
-            This preview stays on this device and is not published.
-          </p>
-          <button class="button button-dark" id="openForm" type="button">
-            Create a profile preview
-            <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-
-        <div class="join-stamp" aria-hidden="true">
-          <span>LOCAL SKILLS</span>
-          <b>✳</b>
-          <span>DESERVE TO SHINE</span>
-        </div>
+      <div class="join-copy">
+        <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
+        <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
+        <p>Make a sample profile and see how it could look in the directory. This preview stays on this device and is not published.</p>
+        <button class="button button-dark" id="openForm">Create a profile preview <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="join-stamp" aria-hidden="true">
+        <span>LOCAL SKILLS</span>
+        <b>✳</b>
+        <span>DESERVE TO SHINE</span>
+      </div>
       </section>
 
       <section class="install-section section-wrap" id="install-help">
-        <div>
-          <p class="eyebrow">TAKE IT WITH YOU</p>
-          <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
-          <p class="muted">Use it like an app, right from your phone.</p>
-        </div>
-
-        <div class="install-steps">
-          <article>
-            <span class="step-number">01</span>
-            <div>
-              <h3>On iPhone</h3>
-              <p>
-                Open this page in Safari. Tap <b>Share</b>, then
-                <b>Add to Home Screen</b>.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <span class="step-number">02</span>
-            <div>
-              <h3>On Android</h3>
-              <p>
-                Open this page in Chrome. Tap <b>⋮</b>, then
-                <b>Install app</b> or <b>Add to Home screen</b>.
-              </p>
-            </div>
-          </article>
-        </div>
+      <div>
+        <p class="eyebrow">TAKE IT WITH YOU</p>
+        <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
+        <p class="muted">Use it like an app, right from your phone.</p>
+      </div>
+      <div class="install-steps">
+        <article>
+          <span class="step-number">01</span>
+          <div>
+            <h3>On iPhone</h3>
+            <p>Open this page in Safari. Tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
+          </div>
+        </article>
+        <article>
+          <span class="step-number">02</span>
+          <div>
+            <h3>On Android</h3>
+            <p>Open this page in Chrome. Tap <b>⋮</b>, then <b>Install app</b> or <b>Add to Home screen</b>.</p>
+          </div>
+        </article>
+      </div>
       </section>
 
       <footer>
-        <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
-          <img
-            class="brand-logo"
-            src="nex-ployee-plus-final.svg"
-            alt="NEX PLOYEE+"
-          >
-        </a>
-        <span>Built for neighbors, one connection at a time.</span>
-        <a href="#install-help">Install help ↑</a>
+      <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
+        <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
+      </a>
+      <span>Built for neighbors, one connection at a time.</span>
+      <a href="#install-help">Install help ↑</a>
       </footer>
     </div>
 
-    <!-- Separate category screen, shown after a category is selected -->
     <section class="category-page section-wrap" id="categoryPage" hidden>
-      <button
-        class="back-link"
-        id="backToCategories"
-        type="button"
-      >
-        ← All categories
-      </button>
-
+      <button class="back-link" id="backToCategories" type="button">← All categories</button>
       <div class="section-heading category-heading">
         <div>
           <p class="eyebrow">AVAILABLE SERVICES</p>
@@ -163,73 +117,80 @@
         </div>
         <span class="demo-tag">DEMO LISTINGS</span>
       </div>
-
       <p class="muted intro" id="categoryIntro"></p>
-
-      <div
-        class="service-filters"
-        id="serviceFilters"
-        aria-label="Filter employees by service"
-      ></div>
-
+      <div class="service-filters" id="serviceFilters" aria-label="Filter by service"></div>
       <div class="filters" role="search">
         <label class="search-field">
           <span aria-hidden="true">⌕</span>
-          <input
-            id="searchInput"
-            type="search"
-            placeholder="Search a service or area"
-            aria-label="Search a service or area"
-          >
+          <input id="searchInput" type="search" placeholder="Search a service or area" aria-label="Search a service or area">
         </label>
       </div>
-
       <div class="results-line">
         <span id="resultCount" aria-live="polite"></span>
         <span>Choose a profile to see details</span>
       </div>
-
       <div class="worker-grid" id="workerGrid"></div>
-
       <div class="empty-state" id="emptyState" hidden>
         <span>⌕</span>
         <h3>No sample profiles yet</h3>
         <p>There are no demo employees in this service yet.</p>
       </div>
     </section>
+
+    <section class="dashboard-page section-wrap" id="customerDashboard" hidden>
+      <button class="back-link" type="button" data-back-home>← Back to website</button>
+      <div class="dashboard-heading"><p class="eyebrow" data-i18n="customerEyebrow">CUSTOMER DASHBOARD · DEMO</p><h1 data-i18n="customerTitle">Welcome to NEX PLOYEE+</h1><p class="muted" data-i18n="customerSubtitle">Find and keep track of trusted help near you.</p></div>
+      <div class="dashboard-panels">
+        <section class="dashboard-panel" data-customer-screen="home"><p class="eyebrow" data-i18n="customerHomeEyebrow">YOUR HOME</p><h2 data-i18n="customerHomeTitle">What help do you need today?</h2><p class="muted" data-i18n="customerHomeText">Browse local services and choose a category to see sample professionals.</p><button class="button button-gold" type="button" data-open-public-directory data-i18n="browseCategories">Browse service categories →</button></section>
+        <section class="dashboard-panel" data-customer-screen="find" hidden><p class="eyebrow" data-i18n="findEyebrow">FIND HELP</p><h2 data-i18n="findTitle">Explore services</h2><p class="muted" data-i18n="findText">Choose a category on the home page to browse available sample profiles.</p><button class="button button-gold" type="button" data-open-public-directory data-i18n="openCategories">Open categories →</button></section>
+        <section class="dashboard-panel" data-customer-screen="saved" hidden><p class="eyebrow" data-i18n="savedEyebrow">SAVED</p><h2 data-i18n="savedTitle">Your saved professionals</h2><p class="muted" data-i18n="savedText">Saved profiles will appear here. Saving profiles is a demo placeholder until accounts are connected.</p><div class="demo-note" data-i18n="savedEmpty">No saved professionals yet</div></section>
+        <section class="dashboard-panel" data-customer-screen="requests" hidden><p class="eyebrow" data-i18n="customerRequestsEyebrow">REQUESTS</p><h2 data-i18n="customerRequestsTitle">Your service requests</h2><p class="muted" data-i18n="customerRequestsText">Booking requests and their status will appear here.</p><div class="demo-note" data-i18n="customerRequestsEmpty">You have no demo requests yet</div></section>
+        <section class="dashboard-panel" data-customer-screen="profile" hidden><p class="eyebrow" data-i18n="customerProfileEyebrow">YOUR PROFILE</p><h2 data-i18n="profileTitle">Profile & preferences</h2><label class="language-control"><span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Choose app language"><option value="en">English</option><option value="hi">हिन्दी — Hindi</option><option value="ur">اردو — Urdu</option><option value="bn">বাংলা — Bengali</option><option value="ta">தமிழ் — Tamil</option></select>
+        </label><p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p></section>
+      </div>
+      <nav class="dashboard-tabs" aria-label="Customer dashboard tabs">
+        <button type="button" class="dashboard-tab active" data-customer-tab="home" data-i18n="tabHome"><span>⌂</span>Home</button>
+        <button type="button" class="dashboard-tab" data-customer-tab="find" data-i18n="tabFind"><span>⌕</span>Find Help</button>
+        <button type="button" class="dashboard-tab" data-customer-tab="saved" data-i18n="tabSaved"><span>♡</span>Saved</button>
+        <button type="button" class="dashboard-tab" data-customer-tab="requests" data-i18n="tabRequests"><span>▤</span>Requests</button>
+        <button type="button" class="dashboard-tab" data-customer-tab="profile" data-i18n="tabProfile"><span>◉</span>Profile</button>
+      </nav>
+    </section>
+
+    <section class="dashboard-page section-wrap" id="providerDashboard" hidden>
+      <button class="back-link" type="button" data-back-home>← Back to website</button>
+      <div class="dashboard-heading"><p class="eyebrow" data-i18n="providerEyebrow">SERVICE PROVIDER DASHBOARD · DEMO</p><h1 data-i18n="providerTitle">Your work, all in one place</h1><p class="muted" data-i18n="providerSubtitle">Manage example requests and your service profile.</p></div>
+      <div class="dashboard-panels">
+        <section class="dashboard-panel" data-provider-screen="dashboard"><p class="eyebrow" data-i18n="overviewEyebrow">OVERVIEW</p><h2 data-i18n="overviewTitle">Good work starts with a complete profile</h2><p class="muted" data-i18n="overviewText">Add your skills, service area, and availability so nearby customers can find you.</p><div class="stat-row"><div><strong>0</strong><span data-i18n="newRequests">New requests</span></div><div><strong>0</strong><span data-i18n="upcomingJobs">Upcoming jobs</span></div></div></section>
+        <section class="dashboard-panel" data-provider-screen="requests" hidden><p class="eyebrow" data-i18n="providerRequestsEyebrow">JOB REQUESTS</p><h2 data-i18n="providerRequestsTitle">Requests from customers</h2><p class="muted" data-i18n="providerRequestsText">New requests will appear here when the provider service is connected.</p><div class="demo-note" data-i18n="providerRequestsEmpty">No demo requests yet</div></section>
+        <section class="dashboard-panel" data-provider-screen="schedule" hidden><p class="eyebrow" data-i18n="scheduleEyebrow">SCHEDULE</p><h2 data-i18n="scheduleTitle">Your upcoming work</h2><p class="muted" data-i18n="scheduleText">Accepted jobs and appointments will appear here.</p><div class="demo-note" data-i18n="scheduleEmpty">No scheduled demo jobs</div></section>
+        <section class="dashboard-panel" data-provider-screen="profile" hidden><p class="eyebrow" data-i18n="providerProfileEyebrow">SERVICE PROFILE</p><h2 data-i18n="providerProfileTitle">Your skills and preferences</h2><label class="language-control"><span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Choose app language"><option value="en">English</option><option value="hi">हिन्दी — Hindi</option><option value="ur">اردو — Urdu</option><option value="bn">বাংলা — Bengali</option><option value="ta">தமிழ் — Tamil</option></select>
+        </label><p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p></section>
+      </div>
+      <nav class="dashboard-tabs provider-tabs" aria-label="Service provider dashboard tabs">
+        <button type="button" class="dashboard-tab active" data-provider-tab="dashboard" data-i18n="tabDashboard"><span>⌂</span>Dashboard</button>
+        <button type="button" class="dashboard-tab" data-provider-tab="requests" data-i18n="tabRequests"><span>▤</span>Requests</button>
+        <button type="button" class="dashboard-tab" data-provider-tab="schedule" data-i18n="tabSchedule"><span>▦</span>Schedule</button>
+        <button type="button" class="dashboard-tab" data-provider-tab="profile" data-i18n="tabProfile"><span>◉</span>Profile</button>
+      </nav>
+    </section>
   </main>
 
   <dialog id="profileDialog" aria-labelledby="dialogTitle">
-    <form method="dialog" class="dialog-close">
-      <button aria-label="Close">×</button>
-    </form>
+    <form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form>
     <div id="dialogContent"></div>
   </dialog>
 
   <dialog id="createDialog" aria-labelledby="createTitle">
-    <form method="dialog" class="dialog-close">
-      <button aria-label="Close">×</button>
-    </form>
-
+    <form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form>
     <p class="eyebrow">YOUR LOCAL SKILLS</p>
     <h2 id="createTitle">Make a profile preview</h2>
-    <p class="muted">
-      This is a private demo on this device. No information is uploaded.
-    </p>
-
+    <p class="muted">This is a private demo on this device. No information is uploaded.</p>
     <form id="createForm" class="create-form">
-      <label>
-        Your name
-        <input
-          name="name"
-          required
-          maxlength="40"
-          placeholder="e.g. Asha"
-        >
-      </label>
-
-      <label>
-        Service
+      <label>Your name<input name="name" required maxlength="40" placeholder="e.g. Asha"></label>
+      <label>Service
         <select name="service" required>
           <option value="">Choose one</option>
           <option>Maid / Housekeeper</option>
@@ -250,63 +211,17 @@
           <option>Delivery &amp; Errand Helper</option>
         </select>
       </label>
-
-      <label>
-        Neighborhood
-        <input
-          name="area"
-          required
-          maxlength="50"
-          placeholder="e.g. Green Park"
-        >
-      </label>
-
-      <label>
-        Languages
-        <input
-          name="languages"
-          maxlength="50"
-          placeholder="e.g. Hindi, English"
-        >
-      </label>
-
-      <label>
-        About your work
-        <textarea
-          name="about"
-          required
-          maxlength="180"
-          rows="3"
-          placeholder="What kind of help do you offer?"
-        ></textarea>
-      </label>
-
-      <button class="button button-dark" type="submit">
-        Show my preview
-      </button>
+      <label>Neighborhood<input name="area" required maxlength="50" placeholder="e.g. Green Park"></label>
+      <label>Languages<input name="languages" maxlength="50" placeholder="e.g. Hindi, English"></label>
+      <label>About your work<textarea name="about" required maxlength="180" rows="3" placeholder="What kind of help do you offer?"></textarea></label>
+      <button class="button button-dark" type="submit">Show my preview</button>
     </form>
-
     <div id="previewResult" class="preview-result" hidden></div>
   </dialog>
 
-  <dialog id="comingSoonDialog" aria-labelledby="comingSoonTitle">
-    <form method="dialog" class="dialog-close">
-      <button aria-label="Close">×</button>
-    </form>
-    <p class="eyebrow">COMING SOON</p>
-    <h2 id="comingSoonTitle">Employer Login</h2>
-    <p class="muted" id="comingSoonMessage">
-      Employer sign-in is not active yet.
-    </p>
-    <button
-      class="button button-dark"
-      type="button"
-      id="closeComingSoon"
-    >
-      Got it
-    </button>
-  </dialog>
 
   <script src="app.js"></script>
 </body>
 </html>
+
+
