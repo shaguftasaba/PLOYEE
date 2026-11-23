@@ -1,4 +1,4 @@
-const CACHE = 'nex-ployee-v7';
+const CACHE = 'nex-ployee-v8';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './nex-ployee-plus-app-icon.svg', './nex-ployee-plus-final.svg'];
 
 self.addEventListener('install', event => {
