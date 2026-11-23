@@ -2,31 +2,26 @@
 const categories = [
   {
     name: 'Home Care & Cleaning',
-    image: './home-care-cleaning.png',
     image: './home-care-cleaning.png.png',
     services: ['Maid / Housekeeper', 'Home Deep Cleaners', 'Laundry & Ironing (Dhobi / Presswala)']
   },
   {
     name: 'Cooking & Kitchen Help',
-    image: './cooking-kitchen-help.png',
     image: './cooking-kitchen-help.png.png',
     services: ['Cook / Chef']
   },
   {
     name: 'Family & Caregiving',
-    image: './family-caregiving.png',
     image: './family-caregiving.png.png',
     services: ['Babysitter / Nanny', 'Patient Attendant', 'Pet Sitter / Dog Walker']
   },
   {
     name: 'Repair & Maintenance',
-    image: './repair-maintenance.png',
     image: './repair-maintenance.png.png',
     services: ['Electrician', 'Plumber', 'Carpenter', 'Appliance Technician']
   },
   {
     name: 'Outdoor & Support',
-    image: './outdoor-support.png',
     image: './outdoor-support.png.png',
     services: ['Driver', 'Security Guard / Watchman', 'Gardener', 'Car Washer', 'Delivery & Errand Helper']
   }
@@ -63,6 +58,113 @@ function escapeHtml(value) {
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[character]);
 }
+
+// Dashboard preview translations. The public home page remains in English for now.
+const dashboardTranslations = {
+  en: { customerEyebrow: 'CUSTOMER DASHBOARD · DEMO', customerTitle: 'Welcome to NEX PLOYEE+', customerSubtitle: 'Find and keep track of trusted help near you.', providerEyebrow: 'SERVICE PROVIDER DASHBOARD · DEMO', providerTitle: 'Your work, all in one place', providerSubtitle: 'Manage example requests and your service profile.', tabHome: 'Home', tabFind: 'Find Help', tabSaved: 'Saved', tabRequests: 'Requests', tabProfile: 'Profile', tabDashboard: 'Dashboard', tabSchedule: 'Schedule', languageLabel: 'Language', languageNote: 'Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.', customerHomeTitle: 'What help do you need today?', findTitle: 'Explore services', savedTitle: 'Your saved professionals', customerRequestsTitle: 'Your service requests', profileTitle: 'Profile & preferences', overviewTitle: 'Good work starts with a complete profile', providerRequestsTitle: 'Requests from customers', scheduleTitle: 'Your upcoming work', providerProfileTitle: 'Your skills and preferences' },
+  hi: { customerEyebrow: 'ग्राहक डैशबोर्ड · डेमो', customerTitle: 'NEX PLOYEE+ में आपका स्वागत है', customerSubtitle: 'अपने आस-पास भरोसेमंद मदद खोजें और सेव करें।', providerEyebrow: 'सेवा प्रदाता डैशबोर्ड · डेमो', providerTitle: 'आपका काम, एक ही जगह', providerSubtitle: 'नमूना अनुरोध और अपनी सेवा प्रोफ़ाइल देखें।', tabHome: 'होम', tabFind: 'मदद खोजें', tabSaved: 'सेव किए', tabRequests: 'अनुरोध', tabProfile: 'प्रोफ़ाइल', tabDashboard: 'डैशबोर्ड', tabSchedule: 'समय-सारणी', languageLabel: 'भाषा', languageNote: 'चयन इस ब्राउज़र में सेव होता है। इस डेमो में टैब और मुख्य शीर्षक बदलते हैं; बाकी पाठ अंग्रेज़ी में है।', customerHomeTitle: 'आज आपको किस मदद की ज़रूरत है?', findTitle: 'सेवाएँ देखें', savedTitle: 'आपके सेव किए पेशेवर', customerRequestsTitle: 'आपके सेवा अनुरोध', profileTitle: 'प्रोफ़ाइल और पसंद', overviewTitle: 'अच्छे काम की शुरुआत पूरी प्रोफ़ाइल से होती है', providerRequestsTitle: 'ग्राहकों के अनुरोध', scheduleTitle: 'आपका आने वाला काम', providerProfileTitle: 'आपके कौशल और पसंद' },
+  ur: { customerEyebrow: 'کسٹمر ڈیش بورڈ · ڈیمو', customerTitle: 'NEX PLOYEE+ میں خوش آمدید', customerSubtitle: 'اپنے قریب قابل اعتماد مدد تلاش کریں اور محفوظ کریں۔', providerEyebrow: 'سروس فراہم کرنے والے کا ڈیش بورڈ · ڈیمو', providerTitle: 'آپ کا کام، ایک ہی جگہ', providerSubtitle: 'نمونہ درخواستیں اور اپنی سروس پروفائل دیکھیں۔', tabHome: 'ہوم', tabFind: 'مدد تلاش کریں', tabSaved: 'محفوظ', tabRequests: 'درخواستیں', tabProfile: 'پروفائل', tabDashboard: 'ڈیش بورڈ', tabSchedule: 'شیڈول', languageLabel: 'زبان', languageNote: 'انتخاب اس براؤزر میں محفوظ ہے۔ اس ڈیمو میں ٹیب اور اہم عنوانات بدلتے ہیں؛ باقی متن انگریزی میں ہے۔', customerHomeTitle: 'آج آپ کو کس مدد کی ضرورت ہے؟', findTitle: 'سروسز دیکھیں', savedTitle: 'آپ کے محفوظ پیشہ ور افراد', customerRequestsTitle: 'آپ کی سروس درخواستیں', profileTitle: 'پروفائل اور ترجیحات', overviewTitle: 'اچھے کام کی شروعات مکمل پروفائل سے ہوتی ہے', providerRequestsTitle: 'صارفین کی درخواستیں', scheduleTitle: 'آپ کا آنے والا کام', providerProfileTitle: 'آپ کی مہارتیں اور ترجیحات' },
+  bn: { customerEyebrow: 'গ্রাহক ড্যাশবোর্ড · ডেমো', customerTitle: 'NEX PLOYEE+-এ স্বাগতম', customerSubtitle: 'কাছাকাছি নির্ভরযোগ্য সহায়তা খুঁজুন ও সংরক্ষণ করুন।', providerEyebrow: 'পরিষেবা প্রদানকারী ড্যাশবোর্ড · ডেমো', providerTitle: 'আপনার কাজ, এক জায়গায়', providerSubtitle: 'নমুনা অনুরোধ ও আপনার পরিষেবা প্রোফাইল দেখুন।', tabHome: 'হোম', tabFind: 'সহায়তা খুঁজুন', tabSaved: 'সংরক্ষিত', tabRequests: 'অনুরোধ', tabProfile: 'প্রোফাইল', tabDashboard: 'ড্যাশবোর্ড', tabSchedule: 'সময়সূচি', languageLabel: 'ভাষা', languageNote: 'নির্বাচনটি এই ব্রাউজারে সংরক্ষিত হয়। এই ডেমোতে ট্যাব ও মূল শিরোনাম বদলায়; বাকি লেখা ইংরেজিতে থাকে।', customerHomeTitle: 'আজ আপনার কী সাহায্য দরকার?', findTitle: 'পরিষেবাগুলি দেখুন', savedTitle: 'আপনার সংরক্ষিত পেশাদাররা', customerRequestsTitle: 'আপনার পরিষেবা অনুরোধ', profileTitle: 'প্রোফাইল ও পছন্দ', overviewTitle: 'ভালো কাজ শুরু হয় সম্পূর্ণ প্রোফাইল দিয়ে', providerRequestsTitle: 'গ্রাহকদের অনুরোধ', scheduleTitle: 'আপনার আসন্ন কাজ', providerProfileTitle: 'আপনার দক্ষতা ও পছন্দ' },
+  ta: { customerEyebrow: 'வாடிக்கையாளர் டாஷ்போர்டு · டெமோ', customerTitle: 'NEX PLOYEE+க்கு வரவேற்கிறோம்', customerSubtitle: 'அருகிலுள்ள நம்பகமான உதவியைத் தேடி சேமிக்கவும்.', providerEyebrow: 'சேவை வழங்குநர் டாஷ்போர்டு · டெமோ', providerTitle: 'உங்கள் வேலை, ஒரே இடத்தில்', providerSubtitle: 'மாதிரி கோரிக்கைகளையும் உங்கள் சேவை சுயவிவரத்தையும் நிர்வகிக்கவும்.', tabHome: 'முகப்பு', tabFind: 'உதவி தேடுக', tabSaved: 'சேமித்தவை', tabRequests: 'கோரிக்கைகள்', tabProfile: 'சுயவிவரம்', tabDashboard: 'டாஷ்போர்டு', tabSchedule: 'அட்டவணை', languageLabel: 'மொழி', languageNote: 'தேர்வு இந்த உலாவியில் சேமிக்கப்படும். இந்த டெமோவில் தாவல் பெயர்களும் முக்கிய தலைப்புகளும் மாறும்; மற்ற உரை ஆங்கிலத்தில் இருக்கும்.', customerHomeTitle: 'இன்று உங்களுக்கு என்ன உதவி தேவை?', findTitle: 'சேவைகளைப் பார்க்கவும்', savedTitle: 'நீங்கள் சேமித்த தொழில்முனைவோர்', customerRequestsTitle: 'உங்கள் சேவை கோரிக்கைகள்', profileTitle: 'சுயவிவரம் மற்றும் விருப்பங்கள்', overviewTitle: 'முழுமையான சுயவிவரத்தில் நல்ல வேலை தொடங்குகிறது', providerRequestsTitle: 'வாடிக்கையாளர் கோரிக்கைகள்', scheduleTitle: 'உங்கள் வரவிருக்கும் வேலை', providerProfileTitle: 'உங்கள் திறன்கள் மற்றும் விருப்பங்கள்' }
+};
+
+function applyDashboardLanguage(language) {
+  const translations = dashboardTranslations[language] || dashboardTranslations.en;
+  document.documentElement.lang = language;
+  document.querySelectorAll('#customerDashboard, #providerDashboard').forEach(dashboard => {
+    dashboard.dir = language === 'ur' ? 'rtl' : 'ltr';
+  });
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const translated = translations[element.dataset.i18n];
+    if (!translated) return;
+    const icon = element.querySelector(':scope > span');
+    element.innerHTML = icon ? `${icon.outerHTML}${escapeHtml(translated)}` : escapeHtml(translated);
+  });
+  document.querySelectorAll('[data-language-select]').forEach(select => {
+    select.value = language;
+  });
+  try { localStorage.setItem('nexPployeeLanguage', language); } catch (_) {}
+}
+
+function showDashboard(role) {
+  homeScreen.hidden = true;
+  categoryPage.hidden = true;
+  document.querySelector('#customerDashboard').hidden = role !== 'customer';
+  document.querySelector('#providerDashboard').hidden = role !== 'provider';
+  const prefix = role === 'customer' ? 'customer' : 'provider';
+  const firstTab = role === 'customer' ? 'home' : 'dashboard';
+  document.querySelectorAll(`[data-${prefix}-tab]`).forEach(button => {
+    const active = button.dataset[`${prefix}Tab`] === firstTab;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-current', active ? 'page' : 'false');
+  });
+  document.querySelectorAll(`[data-${prefix}-screen]`).forEach(panel => {
+    panel.hidden = panel.dataset[`${prefix}Screen`] !== firstTab;
+  });
+  let language = 'en';
+  try { language = localStorage.getItem('nexPployeeLanguage') || 'en'; } catch (_) {}
+  applyDashboardLanguage(language);
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+document.querySelectorAll('[data-open-dashboard]').forEach(button => {
+  button.addEventListener('click', () => {
+    if (typeof closeHeaderMenu === 'function') closeHeaderMenu();
+    showDashboard(button.dataset.openDashboard);
+  });
+});
+
+document.querySelectorAll('[data-back-home]').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelector('#customerDashboard').hidden = true;
+    document.querySelector('#providerDashboard').hidden = true;
+    categoryPage.hidden = true;
+    homeScreen.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  });
+});
+
+document.querySelectorAll('[data-customer-tab]').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.customerTab;
+    document.querySelectorAll('[data-customer-tab]').forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-current', active ? 'page' : 'false');
+    });
+    document.querySelectorAll('[data-customer-screen]').forEach(panel => { panel.hidden = panel.dataset.customerScreen !== tab; });
+  });
+});
+
+document.querySelectorAll('[data-provider-tab]').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.providerTab;
+    document.querySelectorAll('[data-provider-tab]').forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-current', active ? 'page' : 'false');
+    });
+    document.querySelectorAll('[data-provider-screen]').forEach(panel => { panel.hidden = panel.dataset.providerScreen !== tab; });
+  });
+});
+
+document.querySelectorAll('[data-open-public-directory]').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelector('#customerDashboard').hidden = true;
+    document.querySelector('#providerDashboard').hidden = true;
+    homeScreen.hidden = false;
+    categoryPage.hidden = true;
+    document.querySelector('#directory').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+document.querySelectorAll('[data-language-select]').forEach(select => {
+  select.addEventListener('change', () => applyDashboardLanguage(select.value));
+});
+
+let savedDashboardLanguage = 'en';
+try { savedDashboardLanguage = localStorage.getItem('nexPployeeLanguage') || 'en'; } catch (_) {}
+applyDashboardLanguage(savedDashboardLanguage);
 
 function categorySlug(category) {
   return category.name.toLowerCase()
@@ -237,17 +339,27 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 }
 
-const comingSoonDialog = document.querySelector('#comingSoonDialog');
-const comingSoonTitle = document.querySelector('#comingSoonTitle');
-const comingSoonMessage = document.querySelector('#comingSoonMessage');
-document.querySelectorAll('[data-coming-soon]').forEach(button => {
-  button.addEventListener('click', () => {
-    const isAdmin = button.dataset.comingSoon === 'admin';
-    comingSoonTitle.textContent = isAdmin ? 'Admin Panel' : 'Employer Login';
-    comingSoonMessage.textContent = isAdmin
-      ? 'The admin panel is not active yet.'
-      : 'Employer sign-in is not active yet.';
-    comingSoonDialog.showModal();
-  });
+const menuToggle = document.querySelector('#menuToggle');
+const mainMenu = document.querySelector('#mainMenu');
+
+function closeHeaderMenu() {
+  mainMenu.hidden = true;
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Open menu');
+}
+
+menuToggle.addEventListener('click', () => {
+  const isOpening = mainMenu.hidden;
+  mainMenu.hidden = !isOpening;
+  menuToggle.setAttribute('aria-expanded', String(isOpening));
+  menuToggle.setAttribute('aria-label', isOpening ? 'Close menu' : 'Open menu');
 });
-document.querySelector('#closeComingSoon').addEventListener('click', () => comingSoonDialog.close());
+
+document.addEventListener('pointerdown', event => {
+  if (!event.target.closest('.topbar-actions')) closeHeaderMenu();
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !mainMenu.hidden) closeHeaderMenu();
+});
+
