@@ -153,4 +153,6 @@ dialog::backdrop{background:#11110f99}
 .header-menu .nav-option{width:100%;padding:13px 14px;border:0;border-radius:10px;text-align:left;color:#171613;font:600 13px 'DM Sans',sans-serif}
 .header-menu .nav-option:hover,.header-menu .nav-option:focus-visible{background:#f2ead6;outline:2px solid #c3a04b;outline-offset:-2px}
 .header-menu .nav-option.admin-inactive:disabled{color:#969187;cursor:not-allowed;opacity:.68}
+.topbar{width:100%;max-width:none;margin:0;padding-left:24px;padding-right:24px}
+.topbar-actions{gap:8px;margin-left:auto}
 @media(max-width:700px){.topbar-actions{width:auto;margin-left:auto;flex-wrap:nowrap}.header-menu{top:calc(100% + 8px)}}
