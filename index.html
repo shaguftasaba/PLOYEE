@@ -9,17 +9,94 @@
   <link rel="icon" href="nex-ployee-plus-app-icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <title>NEX PLOYEE+ — Local services, made easier</title>
+
+  <style>
+    /* Medium hero banner size. No transitions or animations. */
+    .hero.hero-image {
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-carousel {
+      position: relative;
+      width: min(100%, 1100px);
+      aspect-ratio: 2 / 1;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #11110f;
+    }
+
+    .hero-carousel img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hero-carousel-slide[hidden] {
+      display: none !important;
+    }
+
+    .hero-cta-link {
+      position: absolute;
+      right: 8%;
+      bottom: 13%;
+      width: 32%;
+      height: 18%;
+      display: block;
+      overflow: hidden;
+      text-indent: -9999px;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 600px) {
+      .hero.hero-image {
+        padding: 12px;
+      }
+
+      .hero-carousel {
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+      }
+
+      .hero-carousel img {
+        object-fit: cover;
+      }
+
+      .hero-cta-link {
+        right: 7%;
+        bottom: 10%;
+        width: 40%;
+        height: 18%;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
       <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
     </a>
+
     <div class="topbar-actions">
       <button class="install-button" id="installButton" hidden>Install app</button>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainMenu">
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mainMenu"
+      >
         <span></span><span></span><span></span>
       </button>
+
       <nav class="header-menu" id="mainMenu" aria-label="Account menu" hidden>
         <button class="nav-option" type="button" data-open-dashboard="customer">Customer Login</button>
         <button class="nav-option" type="button" data-open-dashboard="provider">Service Provider Login</button>
@@ -30,13 +107,33 @@
 
   <main id="home">
     <div id="homeScreen">
-      <section class="hero hero-image">
-        <img
-          class="hero-banner"
-          src="./hero-banner.png.png"
-          alt="Find trusted household help with NEX PLOYEE+"
-        >
-        <a class="hero-cta-link" href="#directory" aria-label="Find local helpers">Find local helpers</a>
+      <section class="hero hero-image" aria-label="Featured banners">
+        <div class="hero-carousel" id="heroCarousel">
+          <div class="hero-carousel-slide">
+            <img
+              src="./hero%20banner/hero-banner-1.png"
+              alt="Get trusted local household help today"
+              fetchpriority="high"
+            >
+            <a class="hero-cta-link" href="#directory" aria-label="Find local helpers">Find local helpers</a>
+          </div>
+
+          <div class="hero-carousel-slide" hidden>
+            <img
+              src="./hero%20banner/hero-banner-2.png"
+              alt="Hire local household help in seconds"
+            >
+            <a class="hero-cta-link" href="#directory" aria-label="Find local helpers">Find local helpers</a>
+          </div>
+
+          <div class="hero-carousel-slide" hidden>
+            <img
+              src="./hero%20banner/hero-banner-3.png"
+              alt="Find trusted help near you"
+            >
+            <a class="hero-cta-link" href="#directory" aria-label="Find local helpers">Find local helpers</a>
+          </div>
+        </div>
       </section>
 
       <section class="directory section-wrap" id="directory">
@@ -47,6 +144,7 @@
           </div>
           <span class="demo-tag">DEMO LISTINGS</span>
         </div>
+
         <p class="muted intro">Start with a category to see the services and sample profiles available.</p>
         <div class="category-grid" id="categoryGrid" aria-label="Service categories"></div>
       </section>
@@ -62,49 +160,49 @@
       </section>
 
       <section class="join-section">
-      <div class="join-copy">
-        <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
-        <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
-        <p>Make a sample profile and see how it could look in the directory. This preview stays on this device and is not published.</p>
-        <button class="button button-dark" id="openForm">Create a profile preview <span aria-hidden="true">↗</span></button>
-      </div>
-      <div class="join-stamp" aria-hidden="true">
-        <span>LOCAL SKILLS</span>
-        <b>✳</b>
-        <span>DESERVE TO SHINE</span>
-      </div>
+        <div class="join-copy">
+          <p class="eyebrow">FOR LOCAL PROFESSIONALS</p>
+          <h2>Good at what you do?<br><em>Let neighbors know.</em></h2>
+          <p>Make a sample profile and see how it could look in the directory. This preview stays on this device and is not published.</p>
+          <button class="button button-dark" id="openForm">Create a profile preview <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="join-stamp" aria-hidden="true">
+          <span>LOCAL SKILLS</span>
+          <b>✳</b>
+          <span>DESERVE TO SHINE</span>
+        </div>
       </section>
 
       <section class="install-section section-wrap" id="install-help">
-      <div>
-        <p class="eyebrow">TAKE IT WITH YOU</p>
-        <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
-        <p class="muted">Use it like an app, right from your phone.</p>
-      </div>
-      <div class="install-steps">
-        <article>
-          <span class="step-number">01</span>
-          <div>
-            <h3>On iPhone</h3>
-            <p>Open this page in Safari. Tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
-          </div>
-        </article>
-        <article>
-          <span class="step-number">02</span>
-          <div>
-            <h3>On Android</h3>
-            <p>Open this page in Chrome. Tap <b>⋮</b>, then <b>Install app</b> or <b>Add to Home screen</b>.</p>
-          </div>
-        </article>
-      </div>
+        <div>
+          <p class="eyebrow">TAKE IT WITH YOU</p>
+          <h2>Add NEX PLOYEE+<br>to your home screen.</h2>
+          <p class="muted">Use it like an app, right from your phone.</p>
+        </div>
+        <div class="install-steps">
+          <article>
+            <span class="step-number">01</span>
+            <div>
+              <h3>On iPhone</h3>
+              <p>Open this page in Safari. Tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
+            </div>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div>
+              <h3>On Android</h3>
+              <p>Open this page in Chrome. Tap <b>⋮</b>, then <b>Install app</b> or <b>Add to Home screen</b>.</p>
+            </div>
+          </article>
+        </div>
       </section>
 
       <footer>
-      <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
-        <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
-      </a>
-      <span>Built for neighbors, one connection at a time.</span>
-      <a href="#install-help">Install help ↑</a>
+        <a class="brand" href="#home" aria-label="NEX PLOYEE+ home">
+          <img class="brand-logo" src="nex-ployee-plus-final.svg" alt="NEX PLOYEE+">
+        </a>
+        <span>Built for neighbors, one connection at a time.</span>
+        <a href="#install-help">Install help ↑</a>
       </footer>
     </div>
 
@@ -139,15 +237,51 @@
 
     <section class="dashboard-page section-wrap" id="customerDashboard" hidden>
       <button class="back-link" type="button" data-back-home>← Back to website</button>
-      <div class="dashboard-heading"><p class="eyebrow" data-i18n="customerEyebrow">CUSTOMER DASHBOARD · DEMO</p><h1 data-i18n="customerTitle">Welcome to NEX PLOYEE+</h1><p class="muted" data-i18n="customerSubtitle">Find and keep track of trusted help near you.</p></div>
+      <div class="dashboard-heading">
+        <p class="eyebrow" data-i18n="customerEyebrow">CUSTOMER DASHBOARD · DEMO</p>
+        <h1 data-i18n="customerTitle">Welcome to NEX PLOYEE+</h1>
+        <p class="muted" data-i18n="customerSubtitle">Find and keep track of trusted help near you.</p>
+      </div>
       <div class="dashboard-panels">
-        <section class="dashboard-panel" data-customer-screen="home"><p class="eyebrow" data-i18n="customerHomeEyebrow">YOUR HOME</p><h2 data-i18n="customerHomeTitle">What help do you need today?</h2><p class="muted" data-i18n="customerHomeText">Browse local services and choose a category to see sample professionals.</p><button class="button button-gold" type="button" data-open-public-directory data-i18n="browseCategories">Browse service categories →</button></section>
-        <section class="dashboard-panel" data-customer-screen="find" hidden><p class="eyebrow" data-i18n="findEyebrow">FIND HELP</p><h2 data-i18n="findTitle">Explore services</h2><p class="muted" data-i18n="findText">Choose a category on the home page to browse available sample profiles.</p><button class="button button-gold" type="button" data-open-public-directory data-i18n="openCategories">Open categories →</button></section>
-        <section class="dashboard-panel" data-customer-screen="saved" hidden><p class="eyebrow" data-i18n="savedEyebrow">SAVED</p><h2 data-i18n="savedTitle">Your saved professionals</h2><p class="muted" data-i18n="savedText">Saved profiles will appear here. Saving profiles is a demo placeholder until accounts are connected.</p><div class="demo-note" data-i18n="savedEmpty">No saved professionals yet</div></section>
-        <section class="dashboard-panel" data-customer-screen="requests" hidden><p class="eyebrow" data-i18n="customerRequestsEyebrow">REQUESTS</p><h2 data-i18n="customerRequestsTitle">Your service requests</h2><p class="muted" data-i18n="customerRequestsText">Booking requests and their status will appear here.</p><div class="demo-note" data-i18n="customerRequestsEmpty">You have no demo requests yet</div></section>
-        <section class="dashboard-panel" data-customer-screen="profile" hidden><p class="eyebrow" data-i18n="customerProfileEyebrow">YOUR PROFILE</p><h2 data-i18n="profileTitle">Profile & preferences</h2><label class="language-control"><span data-i18n="languageLabel">Language</span>
-          <select data-language-select aria-label="Choose app language"><option value="en">English</option><option value="hi">हिन्दी — Hindi</option><option value="ur">اردو — Urdu</option><option value="bn">বাংলা — Bengali</option><option value="ta">தமிழ் — Tamil</option></select>
-        </label><p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p></section>
+        <section class="dashboard-panel" data-customer-screen="home">
+          <p class="eyebrow" data-i18n="customerHomeEyebrow">YOUR HOME</p>
+          <h2 data-i18n="customerHomeTitle">What help do you need today?</h2>
+          <p class="muted" data-i18n="customerHomeText">Browse local services and choose a category to see sample professionals.</p>
+          <button class="button button-gold" type="button" data-open-public-directory data-i18n="browseCategories">Browse service categories →</button>
+        </section>
+        <section class="dashboard-panel" data-customer-screen="find" hidden>
+          <p class="eyebrow" data-i18n="findEyebrow">FIND HELP</p>
+          <h2 data-i18n="findTitle">Explore services</h2>
+          <p class="muted" data-i18n="findText">Choose a category on the home page to browse available sample profiles.</p>
+          <button class="button button-gold" type="button" data-open-public-directory data-i18n="openCategories">Open categories →</button>
+        </section>
+        <section class="dashboard-panel" data-customer-screen="saved" hidden>
+          <p class="eyebrow" data-i18n="savedEyebrow">SAVED</p>
+          <h2 data-i18n="savedTitle">Your saved professionals</h2>
+          <p class="muted" data-i18n="savedText">Saved profiles will appear here. Saving profiles is a demo placeholder until accounts are connected.</p>
+          <div class="demo-note" data-i18n="savedEmpty">No saved professionals yet</div>
+        </section>
+        <section class="dashboard-panel" data-customer-screen="requests" hidden>
+          <p class="eyebrow" data-i18n="customerRequestsEyebrow">REQUESTS</p>
+          <h2 data-i18n="customerRequestsTitle">Your service requests</h2>
+          <p class="muted" data-i18n="customerRequestsText">Booking requests and their status will appear here.</p>
+          <div class="demo-note" data-i18n="customerRequestsEmpty">You have no demo requests yet</div>
+        </section>
+        <section class="dashboard-panel" data-customer-screen="profile" hidden>
+          <p class="eyebrow" data-i18n="customerProfileEyebrow">YOUR PROFILE</p>
+          <h2 data-i18n="profileTitle">Profile &amp; preferences</h2>
+          <label class="language-control">
+            <span data-i18n="languageLabel">Language</span>
+            <select data-language-select aria-label="Choose app language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी — Hindi</option>
+              <option value="ur">اردو — Urdu</option>
+              <option value="bn">বাংলা — Bengali</option>
+              <option value="ta">தமிழ் — Tamil</option>
+            </select>
+          </label>
+          <p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p>
+        </section>
       </div>
       <nav class="dashboard-tabs" aria-label="Customer dashboard tabs">
         <button type="button" class="dashboard-tab active" data-customer-tab="home" data-i18n="tabHome"><span>⌂</span>Home</button>
@@ -160,14 +294,48 @@
 
     <section class="dashboard-page section-wrap" id="providerDashboard" hidden>
       <button class="back-link" type="button" data-back-home>← Back to website</button>
-      <div class="dashboard-heading"><p class="eyebrow" data-i18n="providerEyebrow">SERVICE PROVIDER DASHBOARD · DEMO</p><h1 data-i18n="providerTitle">Your work, all in one place</h1><p class="muted" data-i18n="providerSubtitle">Manage example requests and your service profile.</p></div>
+      <div class="dashboard-heading">
+        <p class="eyebrow" data-i18n="providerEyebrow">SERVICE PROVIDER DASHBOARD · DEMO</p>
+        <h1 data-i18n="providerTitle">Your work, all in one place</h1>
+        <p class="muted" data-i18n="providerSubtitle">Manage example requests and your service profile.</p>
+      </div>
       <div class="dashboard-panels">
-        <section class="dashboard-panel" data-provider-screen="dashboard"><p class="eyebrow" data-i18n="overviewEyebrow">OVERVIEW</p><h2 data-i18n="overviewTitle">Good work starts with a complete profile</h2><p class="muted" data-i18n="overviewText">Add your skills, service area, and availability so nearby customers can find you.</p><div class="stat-row"><div><strong>0</strong><span data-i18n="newRequests">New requests</span></div><div><strong>0</strong><span data-i18n="upcomingJobs">Upcoming jobs</span></div></div></section>
-        <section class="dashboard-panel" data-provider-screen="requests" hidden><p class="eyebrow" data-i18n="providerRequestsEyebrow">JOB REQUESTS</p><h2 data-i18n="providerRequestsTitle">Requests from customers</h2><p class="muted" data-i18n="providerRequestsText">New requests will appear here when the provider service is connected.</p><div class="demo-note" data-i18n="providerRequestsEmpty">No demo requests yet</div></section>
-        <section class="dashboard-panel" data-provider-screen="schedule" hidden><p class="eyebrow" data-i18n="scheduleEyebrow">SCHEDULE</p><h2 data-i18n="scheduleTitle">Your upcoming work</h2><p class="muted" data-i18n="scheduleText">Accepted jobs and appointments will appear here.</p><div class="demo-note" data-i18n="scheduleEmpty">No scheduled demo jobs</div></section>
-        <section class="dashboard-panel" data-provider-screen="profile" hidden><p class="eyebrow" data-i18n="providerProfileEyebrow">SERVICE PROFILE</p><h2 data-i18n="providerProfileTitle">Your skills and preferences</h2><label class="language-control"><span data-i18n="languageLabel">Language</span>
-          <select data-language-select aria-label="Choose app language"><option value="en">English</option><option value="hi">हिन्दी — Hindi</option><option value="ur">اردو — Urdu</option><option value="bn">বাংলা — Bengali</option><option value="ta">தமிழ் — Tamil</option></select>
-        </label><p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p></section>
+        <section class="dashboard-panel" data-provider-screen="dashboard">
+          <p class="eyebrow" data-i18n="overviewEyebrow">OVERVIEW</p>
+          <h2 data-i18n="overviewTitle">Good work starts with a complete profile</h2>
+          <p class="muted" data-i18n="overviewText">Add your skills, service area, and availability so nearby customers can find you.</p>
+          <div class="stat-row">
+            <div><strong>0</strong><span data-i18n="newRequests">New requests</span></div>
+            <div><strong>0</strong><span data-i18n="upcomingJobs">Upcoming jobs</span></div>
+          </div>
+        </section>
+        <section class="dashboard-panel" data-provider-screen="requests" hidden>
+          <p class="eyebrow" data-i18n="providerRequestsEyebrow">JOB REQUESTS</p>
+          <h2 data-i18n="providerRequestsTitle">Requests from customers</h2>
+          <p class="muted" data-i18n="providerRequestsText">New requests will appear here when the provider service is connected.</p>
+          <div class="demo-note" data-i18n="providerRequestsEmpty">No demo requests yet</div>
+        </section>
+        <section class="dashboard-panel" data-provider-screen="schedule" hidden>
+          <p class="eyebrow" data-i18n="scheduleEyebrow">SCHEDULE</p>
+          <h2 data-i18n="scheduleTitle">Your upcoming work</h2>
+          <p class="muted" data-i18n="scheduleText">Accepted jobs and appointments will appear here.</p>
+          <div class="demo-note" data-i18n="scheduleEmpty">No scheduled demo jobs</div>
+        </section>
+        <section class="dashboard-panel" data-provider-screen="profile" hidden>
+          <p class="eyebrow" data-i18n="providerProfileEyebrow">SERVICE PROFILE</p>
+          <h2 data-i18n="providerProfileTitle">Your skills and preferences</h2>
+          <label class="language-control">
+            <span data-i18n="languageLabel">Language</span>
+            <select data-language-select aria-label="Choose app language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी — Hindi</option>
+              <option value="ur">اردو — Urdu</option>
+              <option value="bn">বাংলা — Bengali</option>
+              <option value="ta">தமிழ் — Tamil</option>
+            </select>
+          </label>
+          <p class="muted language-note" data-i18n="languageNote">Your choice is saved in this browser. This demo translates tab names and key headings; other text remains English.</p>
+        </section>
       </div>
       <nav class="dashboard-tabs provider-tabs" aria-label="Service provider dashboard tabs">
         <button type="button" class="dashboard-tab active" data-provider-tab="dashboard" data-i18n="tabDashboard"><span>⌂</span>Dashboard</button>
@@ -219,9 +387,21 @@
     <div id="previewResult" class="preview-result" hidden></div>
   </dialog>
 
+  <script>
+    (() => {
+      const slides = Array.from(document.querySelectorAll("#heroCarousel .hero-carousel-slide"));
+      if (slides.length < 2) return;
+
+      let currentSlide = 0;
+
+      window.setInterval(() => {
+        slides[currentSlide].hidden = true;
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].hidden = false;
+      }, 5000);
+    })();
+  </script>
 
   <script src="app.js"></script>
 </body>
 </html>
-
-
